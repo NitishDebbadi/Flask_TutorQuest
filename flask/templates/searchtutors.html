@@ -1,0 +1,100 @@
+{% extends "layouts.html" %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="jumbotron ">
+    <form class="container" method="post">
+        <h3>Select Your desired Tutor</h3>
+        <br><br>
+        <div class="">
+            <div class="">
+                <select class="form-control form-control" name="subject">
+                    <option value="">Select Subject</option>
+                    <option value="maths">Maths</option>
+                    <option value="physics">Physics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="social">Social Studies</option>
+                    <option value="computers">Computer Science</option>
+                    <option value="languages">languages</option>
+                </select>
+            </div>
+            <br>
+            <div class="">
+                <select class="form-control form-control" name="experience">
+                    <option value="">Select Experience</option>
+                    <option value="1">1 year+</option>
+                    <option value="2">2 years+</option>
+                    <option value="3">3 years+</option>
+                    <option value="4">4 years+</option>
+                    <option value="5">5 years+</option>
+                    <option value="6">6 years+</option>
+                    <option value="7">7 years+</option>
+                </select>
+            </div>
+            <br>
+            <div class="">
+                <select class="form-control form-control" name="fee">
+                    <option value="">Select fee</option>
+                    <option value="5000">less than 5000</option>
+                    <option value="10000">less than 10000</option>
+                    <option value="15000">less than 15000</option>
+                    <option value="20000">less than 20000</option>
+                    <option value="30000">less than 30000</option>
+                    <option value="50000">less than 50000</option>
+                </select>
+            </div>
+            <br>
+            <div class="">
+                <select class="form-control form-control" name='statelist'>
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                </select>
+            </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+            <input class="btn btn-outline-info btn-lg btn-block"
+                   type="submit" name="submit"
+                   value="Search">
+        </div>
+    </form>
+</div>
+{% if lst %}
+<div class="jumbotron">
+    <div id="tablelist" class="table-responsive">
+        <table class="table">
+            <tr class="thead-dark">
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Experience</th>
+                <th>fee</th>
+                <th>state</th>
+                <th>Area</th>
+                <th>Phone No</th>
+                <th>email</th>
+                <th>Choose one</th>
+            </tr>
+            {% for i in lst %}
+            <tr class="table-light">
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td><a class="btn btn-info" href="/tutor_select/{{ i[8] }}" >select</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

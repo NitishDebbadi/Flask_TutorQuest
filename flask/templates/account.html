@@ -1,0 +1,81 @@
+{% extends "layouts.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="media">
+        <img class="rounded-circle account-img" src='{{ image_file }}'>
+        <div class="media-body">
+            <h2 class="account-heading">{{ session['firstName'] }}</h2>
+            <p class="text-secondary"><span>Email: {{ session['email'] }}</span></p>
+            {% if name==None %}
+            <p class="mb-0"> You have not entered your details</p>
+            {% else %}
+            <p class="text-secondary"> contact: {{phonenumber}}</p>
+            <p class="mb-0"> Hey {{ name }} you are from {{area}} in {{state}} you currently have an experience of {{
+                experience }} years in {{ subject }} subject the tution fee you charge is Rs {{ fee }} per month </p>
+            {% endif %}
+
+            <br>
+            <p style='font-size:11px' class="text-muted text-right">You can edit your details below</p>
+        </div>
+    </div>
+    <br><br>
+    <div class="content-section">
+        <form method="post">
+            <fieldset class="form-group">
+                <h3 class="form-control-label">Edit Details</h3>
+                <div class="form-group">
+                    Name
+                    <input class="form-control form-control-lg" type="text" name="name" placeholder="Change Name">
+                </div>
+                <div class="form-group">
+                    Specialised Subject
+                    <select class="form-control form-control-lg" name="subject">
+                        <option value="">Select Subject</option>
+                        <option value="maths">Maths</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="social">Social Studies</option>
+                        <option value="computers">Computer Science</option>
+                        <option value="languages">languages</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    Enter Your Experience
+                    <input class="form-control form-control-lg" type="text" name="experience" placeholder="Enter here">
+                </div>
+                <div class="form-group">
+                    Enter your fee (per month)
+                    <input class="form-control form-control-lg" type="text" name="fee" placeholder="Enter here">
+                </div>
+
+                <div class="form-group">
+                    Select your state
+                    <select class="form-control form-control-lg" name=statelist>
+                        <option value="">Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    Enter your area
+                    <input class="form-control form-control-lg" type="text" name="area" placeholder="Enter here">
+                </div>
+                <div class="form-group">
+                    Enter your Phone Number
+                    <input class="form-control form-control-lg" type="text" name="phonenumber" size=10
+                           placeholder="Enter here">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-outline-info btn-lg btn-block" type="submit" name="submit" value="Edit">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

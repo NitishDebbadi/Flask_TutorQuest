@@ -1,0 +1,51 @@
+{% extends "layouts.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container d-flex justify-content-center">
+    <h1 class="display-4">Hey {{ session['firstName'] }}, Welcome!</h1>
+  </div>
+</div>
+{% if session['usertype']==1 %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Account</h5>
+        <p class="card-text">You can change your account info here.</p>
+        <input class="btn btn-lg btn-block btn-outline-primary" type="button" onClick="window.location.href='{{ url_for( 'account') }}';" name="tutordetails" value="Edit Details">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Student requests</h5>
+        <p class="card-text">List of the student who requested you.</p>
+        <input class="btn btn-lg btn-block btn-outline-success" type="button" onClick="window.location.href='{{ url_for( 'requests') }}';" name="requests" value="Student Requests">
+      </div>
+    </div>
+  </div>
+</div>
+{% elif session['usertype']==2 %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Account</h5>
+        <p class="card-text">You can change your account info here.</p>
+        <input class="btn btn-lg btn-block btn-outline-primary" type="button" onClick="window.location.href='{{ url_for( 'useraccount') }}';" name="userdetails" value="Account Details">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Search</h5>
+        <p class="card-text">Search for the desired tutor.</p>
+        <input class="btn btn-lg btn-block btn-outline-success" type="button" onClick="window.location.href='{{ url_for( 'searchtutors') }}';" name="search" value="Search Tutors">
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

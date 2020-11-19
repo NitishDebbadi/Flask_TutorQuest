@@ -1,0 +1,30 @@
+{% extends "layouts.html" %}
+{% block content %}
+{% if lst %}
+<h1>student requests</h1>
+<div class="jumbotron">
+    <div id="tablelist" class="table-responsive">
+        <table class="table">
+            <tr class="thead-dark">
+                <th>Name</th>
+                <th>standard</th>
+                <th>state</th>
+                <th>Phone No</th>
+                <th>email</th>
+            </tr>
+            {% for i in lst %}
+            <tr class="table-light">
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% else %}
+<h1>No student requests as of now</h1>
+{% endif %}
+{% endblock %}
